@@ -1,0 +1,51 @@
+﻿@model MovieTicketBookingSystem.Models.PaymentTicket
+
+<div class="container">
+    <h2>Payment Details</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Movie Name</th>
+            <td>@Model.MovieName</td>
+        </tr>
+        <tr>
+            <th>Theater Name</th>
+            <td>@Model.TheaterName</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>@Model.Location</td>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <td>@Model.SeatClass</td>
+        </tr>
+        <tr>
+            <th>Class Rate</th>
+            <td>@Model.ClassRate.ToString("C")</td>
+        </tr>
+        <tr>
+            <th>Number of Seats</th>
+            <td>@(Model.NumberOfSeats != 0 ? Model.NumberOfSeats.ToString() : "Error: NumberOfSeats is 0")</td>
+        </tr>
+        <tr>
+            <th>GST (₹12/seat)</th>
+            <td>@(Model.NumberOfSeats * 12 > 0 ? (Model.NumberOfSeats * 12).ToString("C") : "Error: GST Calculation Failed")</td>
+        </tr>
+        <tr>
+            <th>Total Price with GST</th>
+            <td>@(Model.TotalPriceWithGST > 0 ? Model.TotalPriceWithGST.ToString("C") : "Error: TotalPriceWithGST is 0")</td>
+        </tr>
+    </table>
+
+    <form action="@Url.Action("ConfirmBooking", "User")" method="post">
+        <input type="hidden" name="ScheduleID" value="@Model.ScheduleID" />
+        <input type="hidden" name="SeatClass" value="@Model.SeatClass" />
+        <input type="hidden" name="NumberOfSeats" value="@Model.NumberOfSeats" />
+        <input type="hidden" name="TotalPriceWithGST" value="@Model.TotalPriceWithGST" />
+
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        <a href="@Url.Action("BookTicket", "User")" class="btn btn-secondary">Back</a>
+
+    </form>
+</div>

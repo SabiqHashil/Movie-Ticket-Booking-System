@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MovieTicketBookingSystem.Models.Movie>
+
+<div class="container mt-4">
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show" role="alert">
+            @TempData["AlertMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Movie List</h2>
+        <a href="/Admin/AddMovie" class="btn btn-success mb-3">Add Movie</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center mt-4">No movies available. Click <a href="/Admin/AddMovie">here</a> to add one.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Movie Name</th>
+                    <th>Genre</th>
+                    <th>Duration</th>
+                    <th>Language</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td>@movie.MovieID</td>
+                        <td>@movie.MovieName</td>
+                        <td>@movie.Genre</td>
+                        <td>@movie.Duration</td>
+                        <td>@movie.Language</td>
+                        <td>@movie.Description</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(movie.Image))
+                            {
+                                <img src="data:image/jpeg;base64,@movie.Image" alt="Movie Image" style="width: 100px;" />
+                            }
+                        </td>
+                        <td class="d-flex justify-content-evenly align-items-center">
+                            <a asp-action="UpdateMovie" asp-route-id="@movie.MovieID" class="btn btn-success">Edit</a>
+                            <form asp-action="DeleteMovieConfirmed" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="@movie.MovieID" />
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const alert = document.querySelector(".alert");
+        if (alert) {
+            setTimeout(() => {
+                alert.classList.remove("show");
+                alert.classList.add("fade");
+            }, 3000); 
+        }
+    });
+</script>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MovieTicketBookingSystem.Models.Movie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Movie Ticket Booking</h1>
+    <p class="lead">Explore the latest movies and book your tickets now!</p>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center">Now Showing</h2>
+    <div class="row mt-4">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var movie in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        @if (!string.IsNullOrEmpty(movie.Image))
+                        {
+                            <img src="data:image/jpeg;base64,@movie.Image" class="card-img-top img-fluid" alt="@movie.MovieName" style="height: 300px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <img src="~/images/movie_placeholder.jpg" class="card-img-top img-fluid" alt="@movie.MovieName" style="height: 300px; object-fit: cover;">
+                        }
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@movie.MovieName</h5>
+                            <p class="card-text">
+                                <strong>Genre:</strong> @movie.Genre <br />
+                                <strong>Duration:</strong> @movie.Duration minutes
+                            </p>
+                            <a href="@Url.Action("Signin", "Account")" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p class="text-muted">No movies available at the moment. Check back later!</p>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,56 @@
+# .NET Core
+.vs/
+.vscode/
+.idea/
+# User-specific files
+*.[Cc]ache
+*.user
+*.userosscache
+*.suo
+*.user
+*.tmbundle
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+# Windows Installer files
+*.vssscc
+# Windows Installer files
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ebugFull/
+[Dd]Release/
+[Dd]ebug-*
+[Dd]ebug-*/bin/
+[Dd]Release-*/bin/
+obj/
+bin/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User secrets
+secrets/
+
+# .NET Core tools
+.globaljson
+project.lock.json
+project.fragment.lock.json
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# VS Code settings
+.vscode/
+
+# Microsoft Azure
+.vs2019/
+
+# JetBrains Rider
+.idea/
+
+# macOS
+.DS_Store

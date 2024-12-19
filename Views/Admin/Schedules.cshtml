@@ -1,0 +1,70 @@
+﻿@model List<Schedule>
+
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>@ViewData["Title"] List (Total: @Model.Count)</h2>
+    <a href="/Admin/AddSchedule" class="btn btn-primary">Add New Schedule</a>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Schedule ID</th>
+            <th>Movie</th>
+            <th>Theater Name</th>
+            <th>Location</th>
+            <th>Class</th>
+            <th>Total Seats</th>
+            <th>Remaining Seats</th>
+            <th>Show Time</th>
+            <th>Date</th>
+            <th>Ticket Rate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var schedule in Model)
+            {
+                <tr>
+                    <td>@schedule.ScheduleID</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="@schedule.MovieImage" alt="@schedule.MovieName" class="movie-image me-2" />
+                            @schedule.MovieName
+                        </div>
+                    </td>
+                    <td>@schedule.TheaterName</td>
+                    <td>@schedule.Location</td>
+                    <td>@schedule.Class</td>
+                    <td>@schedule.TotalSeatCount</td>
+                    <td>@schedule.RemainingSeats</td>
+                    <td>@(new DateTime(1, 1, 1, schedule.ShowTime.Hours, schedule.ShowTime.Minutes, 0).ToString("hh:mm tt"))</td>
+                    <td>@schedule.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@schedule.TicketRate.ToString("C")</td>
+                    <td class="d-flex justify-content-around">
+                        <!-- Edit Button -->
+                        <a href="/Admin/UpdateSchedule/@schedule.ScheduleID" class="btn btn-warning btn-sm">Edit</a>
+
+                        <!-- Delete Button -->
+                        <form asp-action="DeleteSchedule" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@schedule.ScheduleID" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this schedule?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="11" class="text-center">No schedules available.</td>
+            </tr>
+        }
+    </tbody>
+</table>

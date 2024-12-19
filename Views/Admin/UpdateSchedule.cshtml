@@ -1,0 +1,69 @@
+﻿@model Schedule
+
+@{
+    ViewData["Title"] = "Update Schedule";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="MovieID">Movie</label>
+        <select class="form-control" id="MovieID" name="MovieID">
+            <option value="">Select Movie</option>
+            @if (ViewBag.Movies != null && ViewBag.Movies.Count > 0)
+            {
+                foreach (var movie in ViewBag.Movies as List<Movie>)
+                {
+                    <option value="@movie.MovieID" selected="@((movie.MovieID == Model.MovieID) ? "selected" : "")">@movie.MovieName</option>
+                }
+            }
+            else
+            {
+                <option value="">No Movies Available</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="TheaterID">Theater</label>
+        <select class="form-control" id="TheaterID" name="TheaterID">
+            <option value="">Select Theater</option>
+            @if (ViewBag.Theaters != null && ViewBag.Theaters.Count > 0)
+            {
+                foreach (var theater in ViewBag.Theaters as List<Theater>)
+                {
+                    <option value="@theater.TheaterID" selected="@((theater.TheaterID == Model.TheaterID) ? "selected" : "")">@theater.TheaterName</option>
+                }
+            }
+            else
+            {
+                <option value="">No Theaters Available</option>
+            }
+        </select>
+    </div>
+
+     <div class="form-group"> 
+         <label for="Class">Class</label> 
+         <select class="form-control" id="Class" name="Class"> 
+             <option value="A" selected="@((Model.Class == 'A') ? "selected" : "")">Class A</option> 
+             <option value="B" selected="@((Model.Class == 'B') ? "selected" : "")">Class B</option> 
+             <option value="C" selected="@((Model.Class == 'C') ? "selected" : "")">Class C</option> 
+         </select> 
+     </div> 
+
+    <div class="form-group">
+        <label for="ShowTime">Show Time</label>
+        <input type="time" class="form-control" id="ShowTime" name="ShowTime" value="@Model.ShowTime.ToString(@"hh\:mm")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Date">Date</label>
+        <input type="date" class="form-control" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Schedule</button>
+    <a asp-action="Schedules" class="btn btn-secondary">Back to List</a>
+</form>
+
+

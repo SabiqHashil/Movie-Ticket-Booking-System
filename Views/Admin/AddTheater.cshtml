@@ -1,0 +1,46 @@
+﻿@model MovieTicketBookingSystem.Models.Theater
+
+@{
+    ViewData["Title"] = "Add New Theater";
+}
+
+<div class="container mt-5">
+    <h2>Add New Theater</h2>
+    <form asp-action="AddTheater" asp-controller="Admin" method="post">
+        <div class="mb-3">
+            <label for="TheaterName" class="form-label">Theater Name</label>
+            <input type="text" class="form-control" id="TheaterName" name="TheaterName" required />
+        </div>
+        <div class="mb-3">
+            <label for="Location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="Location" name="Location" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassA_Rate" class="form-label">Class A Rate</label>
+            <input type="number" step="0.01" class="form-control" id="ClassA_Rate" name="ClassA_Rate" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassA_SeatCount" class="form-label">Class A Seat Count</label>
+            <input type="number" class="form-control" id="ClassA_SeatCount" name="ClassA_SeatCount" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassB_Rate" class="form-label">Class B Rate</label>
+            <input type="number" step="0.01" class="form-control" id="ClassB_Rate" name="ClassB_Rate" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassB_SeatCount" class="form-label">Class B Seat Count</label>
+            <input type="number" class="form-control" id="ClassB_SeatCount" name="ClassB_SeatCount" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassC_Rate" class="form-label">Class C Rate</label>
+            <input type="number" step="0.01" class="form-control" id="ClassC_Rate" name="ClassC_Rate" required />
+        </div>
+        <div class="mb-3">
+            <label for="ClassC_SeatCount" class="form-label">Class C Seat Count</label>
+            <input type="number" class="form-control" id="ClassC_SeatCount" name="ClassC_SeatCount" required />
+        </div>
+        <button type="submit" class="btn btn-success">Add Theater</button>
+        <a asp-action="Theaters" class="btn btn-secondary">Back to List</a>
+
+    </form>
+</div>

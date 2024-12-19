@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+    var schedules = (IEnumerable<Schedule>)ViewData["Schedules"];
+    var username = ViewData["Username"] ?? "Guest"; 
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>@ViewData["Title"]</h1>
+        <p>Welcome, @username! Explore movie schedules, manage your account, and book tickets seamlessly.</p>
+    </div>
+
+    <div class="row mt-4">
+        @if (schedules != null && schedules.Any())
+        {
+            @foreach (var schedule in schedules)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        @if (!string.IsNullOrEmpty(schedule.MovieImage))
+                        {
+                            <img src="data:image/jpeg;base64,@schedule.MovieImage" class="card-img-top img-fluid" alt="@schedule.MovieName" style="height: 300px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <img src="~/images/movie_placeholder.jpg" class="card-img-top img-fluid" alt="@schedule.MovieName" style="height: 300px; object-fit: cover;">
+                        }
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@schedule.MovieName</h5>
+                            <p>Movie ID: @schedule.MovieID</p>
+                            <a href="@Url.Action("MovieDetails", "User", new { id = schedule.MovieID })" class="btn btn-secondary">View Movie</a>
+
+                            @* <a asp-controller="User" asp-action="MovieDetails" asp-route-id="@schedule.MovieID" class="btn btn-secondary">View Movie</a> *@
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                No movie schedules available.
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    // Retrieve the username from Razor
+    const username = '@username';
+
+    // Save the username into localStorage as 'userSession'
+    if (username) {
+        localStorage.setItem('userSession', username);
+        console.log('User session stored in localStorage:', username);
+    }
+</script>

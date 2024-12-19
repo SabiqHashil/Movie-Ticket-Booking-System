@@ -1,0 +1,61 @@
+﻿@model Theater
+
+@{
+    ViewData["Title"] = "Edit Theater";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Theater</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="UpdateTheater" method="post">
+            <input type="hidden" asp-for="TheaterID" />
+            <div class="form-group">
+                <label asp-for="TheaterName" class="control-label"></label>
+                <input asp-for="TheaterName" class="form-control" />
+                <span asp-validation-for="TheaterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassA_Rate" class="control-label"></label>
+                <input asp-for="ClassA_Rate" class="form-control" />
+                <span asp-validation-for="ClassA_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassB_Rate" class="control-label"></label>
+                <input asp-for="ClassB_Rate" class="form-control" />
+                <span asp-validation-for="ClassB_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassC_Rate" class="control-label"></label>
+                <input asp-for="ClassC_Rate" class="form-control" />
+                <span asp-validation-for="ClassC_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassA_SeatCount" class="control-label"></label>
+                <input asp-for="ClassA_SeatCount" class="form-control" type="number" min="0" />
+                <span asp-validation-for="ClassA_SeatCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassB_SeatCount" class="control-label"></label>
+                <input asp-for="ClassB_SeatCount" class="form-control" type="number" min="0" />
+                <span asp-validation-for="ClassB_SeatCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassC_SeatCount" class="control-label"></label>
+                <input asp-for="ClassC_SeatCount" class="form-control" type="number" min="0" />
+                <span asp-validation-for="ClassC_SeatCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a asp-action="Theaters" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

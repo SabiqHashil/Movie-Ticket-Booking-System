@@ -1,0 +1,68 @@
+﻿@model Schedule
+
+@{
+    ViewData["Title"] = "Add New Schedule";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="MovieID">Movie</label>
+        <select class="form-control" id="MovieID" name="MovieID">
+            <option value="">Select Movie</option>
+            @if (ViewBag.Movies != null)
+            {
+                foreach (var movie in ViewBag.Movies as List<Movie>)
+                {
+                    <option value="@movie.MovieID">@movie.MovieName</option>
+                }
+            }
+            else
+            {
+                <option value="">No Movies Available</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="TheaterID">Theater</label>
+        <select class="form-control" id="TheaterID" name="TheaterID">
+            <option value="">Select Theater</option>
+            @if (ViewBag.Theaters != null)
+            {
+                foreach (var theater in ViewBag.Theaters as List<Theater>)
+                {
+                    <option value="@theater.TheaterID">@theater.TheaterName</option>
+                }
+            }
+            else
+            {
+                <option value="">No Theaters Available</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Class">Class</label>
+        <select class="form-control" id="Class" name="Class">
+            <option value="A">Class A</option>
+            <option value="B">Class B</option>
+            <option value="C">Class C</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ShowTime">Show Time</label>
+        <input type="time" class="form-control" id="ShowTime" name="ShowTime" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Date">Date</label>
+        <input type="date" class="form-control" id="Date" name="Date" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Schedule</button>
+    <a asp-action="Schedules" class="btn btn-secondary">Back to List</a>
+
+</form>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MovieTicketBookingSystem.Models.Theater>
+
+@{
+    ViewData["Title"] = "Theaters";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Theaters List</h2>
+    <a href="/Admin/AddTheater" class="btn btn-success">Add New Theater</a>
+</div>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show" role="alert">
+        @TempData["AlertMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Theater Name</th>
+                <th>Location</th>
+                <th>Class A Rate</th>
+                <th>Class A Seats</th>
+                <th>Class B Rate</th>
+                <th>Class B Seats</th>
+                <th>Class C Rate</th>
+                <th>Class C Seats</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var theater in Model)
+            {
+                <tr>
+                    <td>@theater.TheaterID</td>
+                    <td>@theater.TheaterName</td>
+                    <td>@theater.Location</td>
+                    <td>@theater.ClassA_Rate.ToString("C")</td>
+                    <td>@theater.ClassA_SeatCount</td>
+                    <td>@theater.ClassB_Rate.ToString("C")</td>
+                    <td>@theater.ClassB_SeatCount</td>
+                    <td>@theater.ClassC_Rate.ToString("C")</td>
+                    <td>@theater.ClassC_SeatCount</td>
+                    <td>
+                        <a asp-action="UpdateTheater" asp-route-id="@theater.TheaterID" class="btn btn-primary btn-sm">Edit</a>
+                        <form method="post" action="@Url.Action("DeleteTheaterConfirmed", "Admin")" style="display: inline;">
+                            <input type="hidden" name="id" value="@theater.TheaterID" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No theaters available to display.</p>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const alert = document.querySelector(".alert");
+        if (alert) {
+            setTimeout(() => {
+                alert.classList.remove("show");
+                alert.classList.add("fade");
+            }, 3000);
+        }
+    });
+</script>
