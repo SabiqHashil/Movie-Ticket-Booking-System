@@ -1,7 +1,5 @@
-﻿using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MovieTicketBookingSystem.DAL;
-using MovieTicketBookingSystem.Helper;
 using MovieTicketBookingSystem.Models;
 
 namespace MovieTicketBookingSystem.Controllers
@@ -9,7 +7,6 @@ namespace MovieTicketBookingSystem.Controllers
     public class AdminController : Controller
     {
         private readonly DatabaseHelper dbHelper;
-
         // AdminController
         public AdminController()
         {
@@ -39,17 +36,14 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 return View(movie);
             }
-
             try
             {
                 if (movie.UploadedImage != null && movie.UploadedImage.Length > 0)
                 {
-                    //var lastMovieId = await dbHelper.GetLastMovieIdAsync();
                     using var memoryStream = new MemoryStream();
                     await movie.UploadedImage.CopyToAsync(memoryStream);
                     byte[] imageBytes = memoryStream.ToArray();
                     movie.Image = Convert.ToBase64String(imageBytes);
-
                     // Save movie to database
                     var isInserted = await dbHelper.InsertMovieAsync(movie);
                     if (isInserted)
@@ -67,7 +61,6 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 ModelState.AddModelError("", "An error occurred: " + ex.Message);
             }
-
             return View(movie);
         }
         // Update Movie View (GET)
@@ -108,13 +101,11 @@ namespace MovieTicketBookingSystem.Controllers
                     {
                         movie.Image = tempMoviedata.Image;
                     }
-
                     var isUpdated = await dbHelper.UpdateMovieAsync(movie);
                     if (isUpdated)
                     {
                         return RedirectToAction("Movies");
                     }
-
                     ModelState.AddModelError("", "Failed to update movie.");
                 }
                 catch (Exception ex)
@@ -122,7 +113,6 @@ namespace MovieTicketBookingSystem.Controllers
                     ModelState.AddModelError("", "An error occurred: " + ex.Message);
                 }
             }
-
             return View(movie);
         }
         // Delete Movie (POST)
@@ -144,7 +134,6 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 ModelState.AddModelError("", "An error occurred: " + ex.Message);
             }
-
             return RedirectToAction("Movies");
         }
         // Theater List View (GET)
@@ -164,15 +153,22 @@ namespace MovieTicketBookingSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                var isAdded = await dbHelper.InsertTheaterAsync(model);
-                if (isAdded)
+                try
                 {
-                    TempData["SuccessMessage"] = "Theater added successfully!";
-                    return RedirectToAction("Theaters");
+                    var isAdded = await dbHelper.InsertTheaterAsync(model);
+                    if (isAdded)
+                    {
+                        TempData["SuccessMessage"] = "Theater added successfully!";
+                        return RedirectToAction("Theaters");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Failed to add the theater.");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "Failed to add the theater.");
+                    ModelState.AddModelError("", "An error occurred: " + ex.Message);
                 }
             }
             return View(model);
@@ -200,7 +196,6 @@ namespace MovieTicketBookingSystem.Controllers
         public async Task<IActionResult> UpdateTheater(Theater theater)
         {
             var tempTheaterData = await dbHelper.GetTheaterByIdAsync(theater.TheaterID);
-
             if (ModelState.IsValid)
             {
                 try
@@ -219,7 +214,6 @@ namespace MovieTicketBookingSystem.Controllers
                     ModelState.AddModelError("", "An error occurred: " + ex.Message);
                 }
             }
-
             return View(theater);  
         }
         // Delete Theater (POST)
@@ -241,7 +235,6 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 ModelState.AddModelError("", "An error occurred: " + ex.Message);
             }
-
             return RedirectToAction("Theaters");
         }
         // Schedules List View (GET)
@@ -256,7 +249,6 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 Console.WriteLine($"Found {schedules.Count} schedules.");
             }
-
             return View(schedules);
         }
         // Insert Schedule View (GET)
@@ -297,39 +289,39 @@ namespace MovieTicketBookingSystem.Controllers
             }
             return View(model);
         }
-        // Edit Schedule (GET)
+        // Update Schedule (GET)
         public async Task<IActionResult> UpdateSchedule(int id)
         {
             var schedule = await dbHelper.GetScheduleByIDAsync(id);
-            if (schedule == null)
+            try
             {
-                return NotFound();
+                if (schedule == null)
+                {
+                    TempData["ErrorMessage"] = "Schedule not found.";
+                    return RedirectToAction("Schedules");
+                }
+                ViewBag.Movies = await dbHelper.GetMoviesAsync();
+                ViewBag.Theaters = await dbHelper.GetTheatersAsync();
             }
-
-            ViewBag.Movies = await dbHelper.GetMoviesAsync();
-            ViewBag.Theaters = await dbHelper.GetTheatersAsync();
-
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "An error occurred: " + ex.Message);
+            }
             return View(schedule);
         }
-        // Edit Schedule (POST)
+        // Update Schedule (POST)
         [HttpPost]
         public async Task<IActionResult> UpdateSchedule(int id, Schedule schedule)
         {
-            schedule.ScheduleID = id;
-            if (!ModelState.IsValid)
+            if (id != schedule.ScheduleID)
+            {
+                return BadRequest("Mismatched Schedule ID.");
+            }
+            if (ModelState.IsValid)
             {
                 try
                 {
-                    if (DateTime.TryParse(schedule.ShowTime.ToString(), out DateTime parsedTime))
-                    {
-                        schedule.ShowTime = parsedTime.TimeOfDay;
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("ShowTime", "Invalid time format.");
-                        return View(schedule);
-                    }
-
+                    // Update the schedule
                     var isUpdated = await dbHelper.UpdateScheduleAsync(schedule);
                     if (isUpdated)
                     {
@@ -343,10 +335,10 @@ namespace MovieTicketBookingSystem.Controllers
                 }
                 catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "An error occurred while updating the schedule: " + ex.Message);
+                    ModelState.AddModelError("", "An error occurred: " + ex.Message);
                 }
             }
-
+            // Reload dropdowns in case of failure
             ViewBag.Movies = await dbHelper.GetMoviesAsync();
             ViewBag.Theaters = await dbHelper.GetTheatersAsync();
             return View(schedule);
@@ -362,8 +354,11 @@ namespace MovieTicketBookingSystem.Controllers
             }
             return BadRequest();
         }
-
-
-
+        // Get All Ticket Booking (GET)
+        public IActionResult BookingHistory()
+        {
+            var bookedTickets = dbHelper.GetAllBookedTickets();
+            return View(bookedTickets);
+        }
     }
 }

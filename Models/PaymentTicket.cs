@@ -9,6 +9,7 @@
         public string SeatClass { get; set; }
         public decimal ClassRate { get; set; }
         public int NumberOfSeats { get; set; }
+        public int TicketNumber { get; set; }
         public int GST { get; set; }
         public decimal TotalPriceWithGST { get; set; }
     }

@@ -8,7 +8,6 @@
         public char Class { get; set; }
         public TimeSpan ShowTime { get; set; }
         public DateTime Date { get; set; }
-
         // Navigation Properties for display purposes
         public string MovieName { get; set; }
         public string MovieImage { get; set; }

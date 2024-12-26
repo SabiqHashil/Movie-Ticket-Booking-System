@@ -48,6 +48,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BKovn5xC96HWiak9sGisvDEC3O6Cb/nPZSHlMZ5hIVk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"7747"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BKovn5xC96HWiak9sGisvDEC3O6Cb/nPZSHlMZ5hIVk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 10:31:27 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MovieTicketBookingSystem/js/signup.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signup.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV\u002Bm3SY8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4467"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV\u002Bm3SY8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 25 Dec 2024 13:15:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/MovieTicketBookingSystem/js/signup.te6g64yr79.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\signup.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"te6g64yr79"},{"Name":"integrity","Value":"sha256-dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV\u002Bm3SY8="},{"Name":"label","Value":"_content/MovieTicketBookingSystem/js/signup.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4467"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV\u002Bm3SY8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 25 Dec 2024 13:15:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MovieTicketBookingSystem/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -748,13 +760,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MovieTicketBookingSystem.ndqge0zzqh.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1142"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Dec 2024 11:58:32 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1142"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Dec 2024 11:21:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MovieTicketBookingSystem/MovieTicketBookingSystem.ndqge0zzqh.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MovieTicketBookingSystem.ndqge0zzqh.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ndqge0zzqh"},{"Name":"integrity","Value":"sha256-i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I="},{"Name":"label","Value":"_content/MovieTicketBookingSystem/MovieTicketBookingSystem.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1142"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I=\u0022"},{"Name":"Last-Modified","Value":"Thu, 19 Dec 2024 11:58:32 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1142"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022i6cy\u002BUbM\u002BspI34yZMFOO8SuuYhj6TkSaa65ezRzIf4I=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Dec 2024 11:21:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

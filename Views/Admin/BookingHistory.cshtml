@@ -1,0 +1,55 @@
+﻿@model List<UserTicket>
+
+<div class="container">
+    <h2>All Booked Tickets</h2>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Ticket Number</th>
+                    <th>Seat Class</th>
+                    <th>Class Rate</th>
+                    <th>Number of Seats</th>
+                    <th>Total Price</th>
+                    <th>Booking Date</th>
+                    <th>Movie Name</th>
+                    <th>Language</th>
+                    <th>Theater Name</th>
+                    <th>Location</th>
+                    <th>Show Time</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ticket in Model)
+                {
+                    <tr>
+                        <td>@ticket.TicketID</td>
+                        <td>@ticket.UserID</td>
+                        <td>@ticket.UserName</td>
+                        <td>@ticket.TicketNumber</td>
+                        <td>@ticket.SeatClass</td>
+                        <td>₹@string.Format("{0}", ticket.ClassRate)</td>
+                        <td>@ticket.NumberOfSeats</td>
+                        <td>₹@string.Format("{0}", ticket.TotalPrice)</td>
+                        <td>@ticket.BookingDate.ToString("dd/MM/yyyy hh:mm tt")</td>
+                        <td>@ticket.MovieName</td>
+                        <td>@ticket.Language</td>
+                        <td>@ticket.TheaterName</td>
+                        <td>@ticket.Location</td>
+                        <td>@(new DateTime(1, 1, 1, ticket.ShowTime.Hours, ticket.ShowTime.Minutes, 0).ToString("hh:mm tt"))</td>
+                        <td>@ticket.Date.ToString("dd-MM-yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No bookings found.</p>
+    }
+</div>

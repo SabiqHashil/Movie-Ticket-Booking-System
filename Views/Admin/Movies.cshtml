@@ -8,12 +8,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     }
-
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Movie List</h2>
         <a href="/Admin/AddMovie" class="btn btn-success mb-3">Add Movie</a>
     </div>
-
     @if (!Model.Any())
     {
         <p class="text-center mt-4">No movies available. Click <a href="/Admin/AddMovie">here</a> to add one.</p>
@@ -63,7 +61,6 @@
         </table>
     }
 </div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const alert = document.querySelector(".alert");

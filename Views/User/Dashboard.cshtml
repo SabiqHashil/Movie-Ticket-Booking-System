@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "User Dashboard";
     var schedules = (IEnumerable<Schedule>)ViewData["Schedules"];
-    var username = ViewData["Username"] ?? "Guest"; 
+    var username = TempData["Username"] ?? "Guest";
+    var userID = TempData["UserID"] ?? "UserID";
 }
 
 <div class="container mt-5">
@@ -9,7 +10,6 @@
         <h1>@ViewData["Title"]</h1>
         <p>Welcome, @username! Explore movie schedules, manage your account, and book tickets seamlessly.</p>
     </div>
-
     <div class="row mt-4">
         @if (schedules != null && schedules.Any())
         {
@@ -27,10 +27,7 @@
                         }
                         <div class="card-body text-center">
                             <h5 class="card-title">@schedule.MovieName</h5>
-                            <p>Movie ID: @schedule.MovieID</p>
                             <a href="@Url.Action("MovieDetails", "User", new { id = schedule.MovieID })" class="btn btn-secondary">View Movie</a>
-
-                            @* <a asp-controller="User" asp-action="MovieDetails" asp-route-id="@schedule.MovieID" class="btn btn-secondary">View Movie</a> *@
                         </div>
                     </div>
                 </div>
@@ -44,14 +41,17 @@
         }
     </div>
 </div>
-
 <script>
     // Retrieve the username from Razor
     const username = '@username';
-
+    const userID = @userID;
+    const userLocal = {
+        UserName : username,
+        UserID : userID
+    }
     // Save the username into localStorage as 'userSession'
-    if (username) {
-        localStorage.setItem('userSession', username);
-        console.log('User session stored in localStorage:', username);
+    if (userLocal) {
+        localStorage.setItem('userSession', userLocal);
+        console.log('User session stored in localStorage:', userLocal);
     }
 </script>

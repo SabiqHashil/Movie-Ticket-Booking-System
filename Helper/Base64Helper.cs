@@ -15,11 +15,9 @@ namespace MovieTicketBookingSystem.Helper
             {
                 throw new ArgumentException("Image bytes cannot be null or empty.");
             }
-
             string base64String = Convert.ToBase64String(imageBytes);
             return base64String;
         }
-
         /// <summary>
         /// Decodes a Base64 string to a byte array.
         /// </summary>
@@ -31,10 +29,8 @@ namespace MovieTicketBookingSystem.Helper
             {
                 throw new ArgumentException("Base64 string cannot be null or empty.");
             }
-
             // Remove Base64 header if it exists
             string cleanedBase64String = Regex.Replace(base64String, @"^data:image\/[a-zA-Z]+;base64,", string.Empty);
-
             try
             {
                 byte[] bytes = Convert.FromBase64String(cleanedBase64String);
@@ -46,5 +42,4 @@ namespace MovieTicketBookingSystem.Helper
             }
         }
     }
-
 }

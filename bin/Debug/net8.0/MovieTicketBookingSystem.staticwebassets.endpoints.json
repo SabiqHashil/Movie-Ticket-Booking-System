@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Dec 2024 11:58:32 GMT"
+          "Value": "Tue, 24 Dec 2024 11:21:53 GMT"
         }
       ],
       "EndpointProperties": [
@@ -74,7 +74,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Dec 2024 11:58:32 GMT"
+          "Value": "Tue, 24 Dec 2024 11:21:53 GMT"
         }
       ],
       "EndpointProperties": [
@@ -409,6 +409,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-+Kovn5xC96HWiak9sGisvDEC3O6Cb/nPZSHlMZ5hIVk="
+        }
+      ]
+    },
+    {
+      "Route": "js/signup.js",
+      "AssetFile": "js/signup.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV+m3SY8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 13:15:31 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV+m3SY8="
+        }
+      ]
+    },
+    {
+      "Route": "js/signup.te6g64yr79.js",
+      "AssetFile": "js/signup.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4467"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV+m3SY8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 25 Dec 2024 13:15:31 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "te6g64yr79"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dborpRw92WQM1QtZhn6PoOfbbzy11vxxHcrxV+m3SY8="
+        },
+        {
+          "Name": "label",
+          "Value": "js/signup.js"
         }
       ]
     },

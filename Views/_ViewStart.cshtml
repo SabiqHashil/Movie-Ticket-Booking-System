@@ -1,3 +1,16 @@
 ﻿@{
-    Layout = "MainLayout";
+    var userRole = Context.Session.GetString("Role");
+    if(string.IsNullOrEmpty(userRole))
+    {
+        Layout = "MainLayout";
+    }
+    else if (userRole == "Admin")
+    {
+        Layout = "AdminLayout";
+    }
+    else if (userRole == "User")
+    {
+        Layout = "UserLayout";
+    }
+   
 }

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieTicketBookingSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/MainLayout.css" asp-append-version="true" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .navbar-fixed {
+            background: #f8f9fa;
+            color: #000;
+            width: 100%;
+            /* position: fixed; */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .footer-fixed {
+            background: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Brand Name replaced with an Image -->
+                <a class="navbar-brand" href="@Url.Action("Dashboard", "User")">
+                    <img src="~/images/brand-logo.png" alt="Brand Logo" style="height: 40px;">
+                </a>
+                <!-- Toggler for Responsive Collapse -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collapsible Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto" id="navLinks">
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="@Url.Action("Dashboard", "User")">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="@Url.Action("UserTickets", "User")">Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" asp-action="Logout" asp-controller="Account" class="d-inline">
+                                <button id="logoutBtn" type="submit" class="btn btn-danger nav-link px-3">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Movie Ticket Booking System</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="@Url.Action("AboutUs", "Home")" class="text-white">About Us</a>
+                    <span class="mx-2">|</span>
+                    <a href="@Url.Action("ContactUs", "Home")" class="text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

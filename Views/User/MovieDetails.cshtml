@@ -16,13 +16,11 @@
         {
             <img src="~/images/movie_placeholder.jpg" class="img-fluid" alt="@Model.MovieName" />
         }
-
         <!-- Movie Details -->
         <p><strong>Genre:</strong> @Model.Genre</p>
         <p><strong>Duration:</strong> @Model.Duration minutes</p>
         <p><strong>Language:</strong> @Model.Language</p>
         <p><strong>Description:</strong> @Model.Description</p>
-
         <!-- Buttons to Book or Go Back -->
         <div class="mt-4">
             <a href="@Url.Action("Dashboard", "User")" class="btn btn-secondary">Back to Home</a>

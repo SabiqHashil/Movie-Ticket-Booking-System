@@ -10,7 +10,6 @@ namespace MovieTicketBookingSystem.Models
         public int NumberOfSeats { get; set; }  
         public decimal TotalPrice { get; set; }  
         public DateTime BookingDate { get; set; }  
-
         // Navigation properties for related data 
         public Schedule Schedule { get; set; }  
         public User User { get; set; }  

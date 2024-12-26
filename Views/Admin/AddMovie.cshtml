@@ -8,37 +8,31 @@
             <input asp-for="MovieName" class="form-control" />
             <span asp-validation-for="MovieName" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="Genre">Genre</label>
             <input asp-for="Genre" class="form-control" />
             <span asp-validation-for="Genre" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="Duration">Duration (Minutes)</label>
             <input asp-for="Duration" type="number" class="form-control" />
             <span asp-validation-for="Duration" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="Language">Language</label>
             <input asp-for="Language" class="form-control" />
             <span asp-validation-for="Language" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="Description">Description</label>
             <textarea asp-for="Description" class="form-control"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="UploadedImage">Upload Image</label>
             <input asp-for="UploadedImage" type="file" class="form-control" />
             <span asp-validation-for="UploadedImage" class="text-danger"></span>
         </div>
-
         <button type="submit" class="btn btn-success">Add Movie</button>
         <a asp-action="Movies" class="btn btn-secondary">Back to List</a>
     </form>

@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Admin Dashboard";
+    var username = TempData["Username"] ?? "No User";
 }
 
 <div class="container mt-5">
@@ -7,7 +8,6 @@
         <h1 class="display-4">@ViewData["Title"]</h1>
         <p class="lead">Welcome to the Admin Dashboard! Manage the system effectively from here.</p>
     </div>
-
     <!-- Cards for Key Admin Modules -->
     <div class="row mt-4">
         <!-- Manage Movies -->
@@ -20,7 +20,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Manage Theaters -->
         <div class="col-md-3">
             <div class="card shadow-sm">
@@ -31,7 +30,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Configure Schedules -->
         <div class="col-md-3"> 
              <div class="card shadow-sm"> 
@@ -42,24 +40,23 @@
                  </div> 
              </div> 
          </div>
-
         <!-- Booking History -->
         <div class="col-md-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
                     <h5 class="card-title">Booking History</h5>
                     <p class="card-text">Users Booking Histories</p>
-                    <a href="#" class="btn btn-warning">Bookings</a>
+                    <a href="/Admin/BookingHistory" class="btn btn-warning">Bookings</a>
                 </div>
             </div>
         </div>
-
-        <!-- Admin Quick Actions -->
-        <div class="mt-5">
-            <h3>Quick Actions</h3>
-            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                <button type="submit" class="btn btn-danger">Log Out Securely</button>
-            </form>
-        </div>
-
 </div>
+<script>
+        // Retrieve the username from Razor
+        const username = '@username';
+        // Save the username into localStorage as 'userSession'
+        if (username) {
+            localStorage.setItem('userSession', username);
+            console.log('User session stored in localStorage:', username);
+        }
+</script>

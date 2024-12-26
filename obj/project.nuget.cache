@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "H1wV9aN/dfc=",
+  "dgSpecHash": "FYyVXt6gLsA=",
   "success": true,
-  "projectFilePath": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj",
+  "projectFilePath": "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\cachemanager.core\\1.2.0\\cachemanager.core.1.2.0.nupkg.sha512",
     "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.2\\microsoft.data.sqlclient.5.2.2.nupkg.sha512",

@@ -1,0 +1,34 @@
+﻿@model List<MovieTicketBookingSystem.Models.UserTicket>
+
+<div class="container">
+    <h2>Your Tickets</h2>
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @foreach (var ticket in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>@ticket.MovieName</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Ticket Number:</strong> @ticket.TicketNumber</p>
+                            <p><strong>Theater:</strong> @ticket.TheaterName</p>
+                            <p><strong>Location:</strong> @ticket.Location</p>
+                            <p><strong>Show Date & Time:</strong> @ticket.Date.ToShortDateString() | @(new DateTime(1, 1, 1, ticket.ShowTime.Hours, ticket.ShowTime.Minutes, 0).ToString("hh:mm tt"))</p>
+                            <p><strong>Seat Class:</strong> @ticket.SeatClass</p>
+                            <p><strong>Number of Seats:</strong> @ticket.NumberOfSeats</p>
+                            <p><strong>Total Price:</strong>₹ @string.Format("{0}", ticket.TotalPrice)</p>
+                            <p><strong>Booking Date:</strong> @ticket.BookingDate.ToString("MM/dd/yyyy hh:mm tt")</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No tickets found.</p>
+    }
+</div>

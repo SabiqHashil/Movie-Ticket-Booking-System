@@ -11,6 +11,5 @@
         public int ClassB_SeatCount { get; set; }
         public decimal ClassC_Rate { get; set; }
         public int ClassC_SeatCount { get; set; }
-
     }
 }

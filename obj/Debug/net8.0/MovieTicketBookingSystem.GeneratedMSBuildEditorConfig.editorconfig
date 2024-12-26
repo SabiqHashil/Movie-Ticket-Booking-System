@@ -9,121 +9,137 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MovieTicketBookingSystem
 build_property.RootNamespace = MovieTicketBookingSystem
-build_property.ProjectDir = D:\ClaySys Tasks\MovieTicketBookingSystem\
+build_property.ProjectDir = D:\Projects\Movie-Ticket-Booking-System\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\ClaySys Tasks\MovieTicketBookingSystem
+build_property.MSBuildProjectDirectory = D:\Projects\Movie-Ticket-Booking-System
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Account/Signin.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Account/Signin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Account/Signup.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Account/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/AddMovie.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/AddMovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkTW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/AddSchedule.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/AddSchedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU2NoZWR1bGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/AddTheater.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/AddTheater.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkVGhlYXRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/Dashboard.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/BookingHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va2luZ0hpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/Movies.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/Movies.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTW92aWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/Schedules.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/Schedules.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2NoZWR1bGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/Theaters.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/Theaters.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGhlYXRlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/UpdateMovie.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/UpdateMovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlTW92aWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/UpdateSchedule.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/UpdateSchedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlU2NoZWR1bGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Admin/UpdateTheater.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Admin/UpdateTheater.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlVGhlYXRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Home/AboutUs.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Home/ContactUs.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Home/ContactUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Home/Index.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Shared/Error.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Shared/MainLayout.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/MainLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1haW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/BookingConfirmation.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/BookingConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCb29raW5nQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/BookTicket.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/BookTicket.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCb29rVGlja2V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/Dashboard.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/MovieDetails.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/MovieDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNb3ZpZURldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/PaymentTicket.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/PaymentTicket.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQYXltZW50VGlja2V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/User/Tickets.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/Tickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/_ViewImports.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/User/UserTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyVGlja2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Movie-Ticket-Booking-System/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/_ViewStart.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ClaySys Tasks/MovieTicketBookingSystem/Views/Shared/_Layout.cshtml]
+[D:/Projects/Movie-Ticket-Booking-System/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-urmkrisia4

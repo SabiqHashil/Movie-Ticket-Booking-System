@@ -2,52 +2,79 @@
 
 <form action="@Url.Action("PaymentTicket", "User")" method="post">
     <h2>Book Your Movie Ticket</h2>
-
-    <div class="form-group">
-        <label for="schedule">Select Movie Schedule:</label>
-
-        <!-- Table to display available theaters for the selected movie -->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Movie Name</th>
-                    <th>Theater</th>
-                    <th>Location</th>
-                    <th>Class</th>
-                    <th>Ticket Rate</th>
-                    <th>Show Time</th>
-                    <th>Date</th>
-                    <th>Select</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var schedule in Model.Schedules)
-                {
+    @if (Model == null || Model.Schedules == null || !Model.Schedules.Any())
+    {
+        <p>No schedules are available for booking.</p>
+    }
+    else
+    {
+        <div class="form-group">
+            <label for="schedule">Select Movie Schedule:</label>
+            <!-- Table to display available theaters for the selected movie -->
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>@schedule.MovieName</td>
-                        <td>@schedule.TheaterName</td>
-                        <td>@schedule.Location</td>
-                        <td>@schedule.Class</td>
-                        <td>@schedule.TicketRate.ToString("C")</td>
-                        <td>@schedule.ShowTime.ToString(@"hh\:mm")</td>
-                        <td>@schedule.Date.ToShortDateString()</td>
-                        <td>
-                            <!-- Radio button to select the schedule -->
-                            <input type="radio" name="ScheduleID" value="@schedule.ScheduleID" required />
-                        </td>
+                        <th>Movie Name</th>
+                        <th>Theater</th>
+                        <th>Location</th>
+                        <th>Class</th>
+                        <th>Ticket Rate</th>
+                        <th>Show Time</th>
+                        <th>Date</th>
+                        <th>Remaining Seats</th>
+                        <th>Select</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <form action="@Url.Action("PaymentTicket", "User")" method="get">
-        @* <input type="hidden" name="ScheduleID" value="@schedule.ScheduleID" /> *@
-        <label for="seats">Number of Seats:</label>
-        <input type="number" name="NumberOfSeats" id="seats" class="form-control" min="1" required />
-        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
-        <a href="@Url.Action("MovieDetails", "User")" class="btn btn-secondary">Back</a>
-
-    </form>
+                </thead>
+                <tbody>
+                    @foreach (var schedule in Model.Schedules)
+                    {
+                        <tr>
+                            <td>@schedule.MovieName</td>
+                            <td>@schedule.TheaterName</td>
+                            <td>@schedule.Location</td>
+                            <td>@schedule.Class</td>
+                            <td>₹@schedule.TicketRate</td>
+                            <td>@(new DateTime(1, 1, 1, schedule.ShowTime.Hours, schedule.ShowTime.Minutes, 0).ToString("hh:mm tt"))</td>
+                            <td>@schedule.Date.ToString("dd-MM-yyyy")</td>
+                            <td>@schedule.RemainingSeats</td>
+                            <td>
+                                <!-- Radio button to select the schedule -->
+                                <input type="radio" name="ScheduleID" value="@schedule.ScheduleID" data-remaining-seats="@schedule.RemainingSeats" required />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group mb-2">
+            <label for="seats">Number of Seats:</label>
+            <input type="number" name="NumberOfSeats" id="seats" class="form-control" min="1" required />
+            <span id="seatsWarning" class="text-danger d-none">The number of seats requested exceeds the available seats.</span>
+        </div>
+        <button type="submit" id="proceedButton" class="btn btn-primary" disabled>Proceed to Payment</button>
+        <a href="@Url.Action("Dashboard", "User")" class="btn btn-secondary">Back to Dashboard</a>
+    }
 </form>
+<script>
+    const seatsInput = document.getElementById("seats");
+    const proceedButton = document.getElementById("proceedButton");
+    const seatsWarning = document.getElementById("seatsWarning");
+    const scheduleInputs = document.querySelectorAll('input[name="ScheduleID"]');
 
+    function validateSeats() {
+        const selectedSchedule = document.querySelector('input[name="ScheduleID"]:checked');
+        const selectedSeats = parseInt(seatsInput.value, 10);
+        if (selectedSchedule) {
+            const remainingSeats = parseInt(selectedSchedule.dataset.remainingSeats, 10);
+            if (selectedSeats > remainingSeats) {
+                seatsWarning.classList.remove("d-none");
+                proceedButton.disabled = true;
+            } else {
+                seatsWarning.classList.add("d-none");
+                proceedButton.disabled = false;
+            }
+        }
+    }
+    seatsInput.addEventListener("input", validateSeats);
+    scheduleInputs.forEach(input => input.addEventListener("change", validateSeats));
+</script>

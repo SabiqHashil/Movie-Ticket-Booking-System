@@ -4,7 +4,7 @@
     ViewData["Title"] = "Sign Up";
 }
 @{
-    var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+    var currentDate = DateTime.Now.ToString("dd-MM-yyyy");
 }
 
 <div class="container my-5">
@@ -12,29 +12,24 @@
         <h1 class="display-4">@ViewData["Title"]</h1>
         <p class="lead text-muted">Create a new account to enjoy our services.</p>
     </div>
-
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card shadow-lg">
                 <div class="card-body p-4">
                     <form method="post" enctype="multipart/form-data">
-
                         <!-- Form Fields for User Information -->
                         <div class="form-group">
                             <label for="FirstName">First Name</label>
                             <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model?.FirstName" required placeholder="Enter your first name" />
                         </div>
-
                         <div class="form-group">
                             <label for="LastName">Last Name</label>
                             <input type="text" class="form-control" id="LastName" name="LastName" value="@Model?.LastName" required placeholder="Enter your last name" />
                         </div>
-
                         <div class="form-group">
                             <label for="DateOfBirth">Date of Birth</label>
                             <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" value="@currentDate" required />
                         </div>
-
                         <fieldset class="form-group">
                             <legend class="col-form-label pt-0">Gender</legend>
                             <div class="form-check form-check-inline">
@@ -46,48 +41,45 @@
                                 <label class="form-check-label" for="GenderFemale">Female</label>
                             </div>
                         </fieldset>
-
                         <div class="form-group">
                             <label for="PhoneNumber">Phone Number</label>
                             <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model?.PhoneNumber" required placeholder="Enter your phone number" />
                         </div>
-
                         <div class="form-group">
                             <label for="Email">Email Address</label>
                             <input type="email" class="form-control" id="Email" name="Email" value="@Model?.Email" required placeholder="Enter your email address" />
                         </div>
-
                         <div class="form-group">
                             <label for="Address">Address</label>
                             <input type="text" class="form-control" id="Address" name="Address" value="@Model?.Address" required placeholder="Enter your address" />
                         </div>
-
                         <div class="form-group">
                             <label for="State">State</label>
-                            <input type="text" class="form-control" id="State" name="State" value="@Model?.State" required placeholder="Enter your state" />
+                            <select id="State" name="State" class="form-control" required>
+                                <option value="">Select a state</option>
+                                <!-- States will be populated dynamically -->
+                            </select>
                         </div>
-
                         <div class="form-group">
                             <label for="City">City</label>
-                            <input type="text" class="form-control" id="City" name="City" value="@Model?.City" required placeholder="Enter your city" />
+                            <select id="City" name="City" class="form-control" required>
+                                <option value="">Select a city</option>
+                                <!-- Cities will be populated dynamically based on the selected state -->
+                            </select>
                         </div>
-
                         <div class="form-group">
                             <label for="Username">Username</label>
                             <input type="text" class="form-control" id="Username" name="Username" value="@Model?.Username" required placeholder="Enter a unique username" />
                         </div>
-
                         <div class="form-group">
                             <label for="Password">Password</label>
                             <input type="password" class="form-control" id="Password" name="Password" required placeholder="Create a password" />
                         </div>
-
                         <div class="form-group">
                             <label for="ConfirmPassword">Confirm Password</label>
                             <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required placeholder="Confirm your password" />
                             <small id="passwordError" class="text-danger" style="display: none;">Passwords do not match</small>
                         </div>
-
                         <button type="submit" id="submitButton" class="btn btn-primary btn-block">Sign Up</button>
                     </form>
                 </div>
@@ -96,17 +88,5 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('submitButton').addEventListener('click', function (event) {
-        const password = document.getElementById('Password').value;
-        const confirmPassword = document.getElementById('ConfirmPassword').value;
-        const errorElement = document.getElementById('passwordError');
-
-        if(password !== confirmPassword){
-            event.preventDefault()
-            errorElement.style.display = 'block';
-        } else {
-            errorElement.style.display = 'none';
-        }
-    });
-</script>
+ 
+<script src="~/js/signup.js"></script>

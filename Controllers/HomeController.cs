@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using MovieTicketBookingSystem.DAL;
 using MovieTicketBookingSystem.Models;
 
@@ -10,10 +9,9 @@ namespace MovieTicketBookingSystem.Controllers
     {
         private readonly ILogger<HomeController> logger;
         private readonly DatabaseHelper dbHelper;
-
         public HomeController(ILogger<HomeController> logger, DatabaseHelper dbHelper)
         {
-            logger = logger;
+            this.logger = logger;
             this.dbHelper = dbHelper;
         }
         // Index View Movie Data
@@ -23,9 +21,6 @@ namespace MovieTicketBookingSystem.Controllers
             {
                 // Fetch all movies
                 var movies = await dbHelper.GetAllMoviesAsync();
-
-                //ViewData["Movies"] = movies;
-
                 return View(movies);
             }
             catch (Exception ex)
@@ -44,7 +39,6 @@ namespace MovieTicketBookingSystem.Controllers
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

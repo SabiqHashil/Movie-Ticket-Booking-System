@@ -24,7 +24,6 @@
             }
         </select>
     </div>
-
     <div class="form-group">
         <label for="TheaterID">Theater</label>
         <select class="form-control" id="TheaterID" name="TheaterID">
@@ -42,7 +41,6 @@
             }
         </select>
     </div>
-
     <div class="form-group">
         <label for="Class">Class</label>
         <select class="form-control" id="Class" name="Class">
@@ -51,18 +49,21 @@
             <option value="C">Class C</option>
         </select>
     </div>
-
     <div class="form-group">
         <label for="ShowTime">Show Time</label>
         <input type="time" class="form-control" id="ShowTime" name="ShowTime" required />
     </div>
-
     <div class="form-group">
         <label for="Date">Date</label>
         <input type="date" class="form-control" id="Date" name="Date" required />
     </div>
-
     <button type="submit" class="btn btn-primary">Add Schedule</button>
     <a asp-action="Schedules" class="btn btn-secondary">Back to List</a>
-
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+           const dateField = document.getElementById('Date');
+    const today = new Date().toISOString().split('T')[0];
+    dateField.setAttribute('min', today);
+        });
+</script>

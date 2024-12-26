@@ -8,7 +8,6 @@
     <h2>@ViewData["Title"] List (Total: @Model.Count)</h2>
     <a href="/Admin/AddSchedule" class="btn btn-primary">Add New Schedule</a>
 </div>
-
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -34,7 +33,6 @@
                     <td>@schedule.ScheduleID</td>
                     <td>
                         <div class="d-flex align-items-center">
-                            <img src="@schedule.MovieImage" alt="@schedule.MovieName" class="movie-image me-2" />
                             @schedule.MovieName
                         </div>
                     </td>
@@ -44,13 +42,10 @@
                     <td>@schedule.TotalSeatCount</td>
                     <td>@schedule.RemainingSeats</td>
                     <td>@(new DateTime(1, 1, 1, schedule.ShowTime.Hours, schedule.ShowTime.Minutes, 0).ToString("hh:mm tt"))</td>
-                    <td>@schedule.Date.ToString("yyyy-MM-dd")</td>
-                    <td>@schedule.TicketRate.ToString("C")</td>
+                    <td>@schedule.Date.ToString("dd-MM-yyyy")</td>
+                    <td>₹@schedule.TicketRate</td>
                     <td class="d-flex justify-content-around">
-                        <!-- Edit Button -->
                         <a href="/Admin/UpdateSchedule/@schedule.ScheduleID" class="btn btn-warning btn-sm">Edit</a>
-
-                        <!-- Delete Button -->
                         <form asp-action="DeleteSchedule" method="post" style="display:inline;">
                             <input type="hidden" name="id" value="@schedule.ScheduleID" />
                             @Html.AntiForgeryToken()

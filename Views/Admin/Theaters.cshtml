@@ -8,19 +8,11 @@
     <h2>Theaters List</h2>
     <a href="/Admin/AddTheater" class="btn btn-success">Add New Theater</a>
 </div>
-
 @if (TempData["AlertMessage"] != null)
 {
     <div class="alert alert-@TempData["AlertType"] alert-dismissible fade show" role="alert">
         @TempData["AlertMessage"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-}
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
     </div>
 }
 
@@ -48,11 +40,11 @@
                     <td>@theater.TheaterID</td>
                     <td>@theater.TheaterName</td>
                     <td>@theater.Location</td>
-                    <td>@theater.ClassA_Rate.ToString("C")</td>
+                    <td>₹@theater.ClassA_Rate</td>
                     <td>@theater.ClassA_SeatCount</td>
-                    <td>@theater.ClassB_Rate.ToString("C")</td>
+                    <td>₹@theater.ClassB_Rate</td>
                     <td>@theater.ClassB_SeatCount</td>
-                    <td>@theater.ClassC_Rate.ToString("C")</td>
+                    <td>₹@theater.ClassC_Rate</td>
                     <td>@theater.ClassC_SeatCount</td>
                     <td>
                         <a asp-action="UpdateTheater" asp-route-id="@theater.TheaterID" class="btn btn-primary btn-sm">Edit</a>
@@ -71,7 +63,6 @@ else
 {
     <p>No theaters available to display.</p>
 }
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const alert = document.querySelector(".alert");

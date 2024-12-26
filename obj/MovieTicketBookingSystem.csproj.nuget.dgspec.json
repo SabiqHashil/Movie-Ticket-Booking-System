@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj": {}
+    "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj": {}
   },
   "projects": {
-    "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj": {
+    "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj",
+        "projectUniqueName": "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj",
         "projectName": "MovieTicketBookingSystem",
-        "projectPath": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj",
+        "projectPath": "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj",
         "packagesPath": "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\",
-        "outputPath": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\obj\\",
+        "outputPath": "D:\\Projects\\Movie-Ticket-Booking-System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "CacheManager.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.2.2, )"
