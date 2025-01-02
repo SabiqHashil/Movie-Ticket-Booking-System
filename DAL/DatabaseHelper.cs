@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
+using MovieTicketBookingSystem.Helper;
 using MovieTicketBookingSystem.Models;
 
 
@@ -36,6 +37,9 @@ namespace MovieTicketBookingSystem.DAL
         {
             try
             {
+                // Encrypt the password
+                string encryptedPassword = EncryptionHelper.EncryptPassword(password);
+
                 using (SqlConnection conn = new SqlConnection(new DatabaseHelper().GetConnectionString()))
                 {
                     conn.Open();
@@ -53,7 +57,7 @@ namespace MovieTicketBookingSystem.DAL
                         cmd.Parameters.AddWithValue("@State", state);
                         cmd.Parameters.AddWithValue("@City", city);
                         cmd.Parameters.AddWithValue("@Username", username);
-                        cmd.Parameters.AddWithValue("@Password", password);
+                        cmd.Parameters.AddWithValue("@Password", encryptedPassword);
 
                         return cmd.ExecuteNonQuery() > 0;
                     }
@@ -79,7 +83,6 @@ namespace MovieTicketBookingSystem.DAL
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@Username", username);
-                        cmd.Parameters.AddWithValue("@Password", password);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -95,13 +98,21 @@ namespace MovieTicketBookingSystem.DAL
                         {
                             if (reader.Read())
                             {
-                                return new User
+                                string storedPassword = reader["Password"].ToString();
+
+                                // Encrypt the entered password to compare
+                                string encryptedPassword = EncryptionHelper.EncryptPassword(password);
+
+                                if (storedPassword == encryptedPassword)
                                 {
-                                    UserID = Convert.ToInt32(reader["UserID"]),
-                                    FirstName = reader["FirstName"].ToString(),
-                                    LastName = reader["LastName"].ToString(),
-                                    Username = reader["Username"].ToString()
-                                };
+                                    return new User
+                                    {
+                                        UserID = Convert.ToInt32(reader["UserID"]),
+                                        FirstName = reader["FirstName"].ToString(),
+                                        LastName = reader["LastName"].ToString(),
+                                        Username = reader["Username"].ToString()
+                                    };
+                                }
                             }
                         }
                     }

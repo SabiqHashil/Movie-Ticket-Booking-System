@@ -50,13 +50,12 @@ END
 EXEC sp_Login @Username = 'sbqhashil';
 -- Login Procedure
 ALTER PROCEDURE sp_Login
-    @Username VARCHAR(50),
-	@Password VARCHAR(255)
+    @Username VARCHAR(50)
 AS
 BEGIN
-    SELECT UserID, FirstName, LastName, Username
+    SELECT UserID, FirstName, LastName, Username, Password
     FROM Users
-    WHERE Username = @Username
+    WHERE Username = @Username;
 END
 
 -- Movie Table

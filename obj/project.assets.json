@@ -1911,11 +1911,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj",
+      "projectUniqueName": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj",
       "projectName": "MovieTicketBookingSystem",
-      "projectPath": "D:\\Projects\\Movie-Ticket-Booking-System\\MovieTicketBookingSystem.csproj",
+      "projectPath": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\MovieTicketBookingSystem.csproj",
       "packagesPath": "C:\\Users\\Sabiq Hashil\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Movie-Ticket-Booking-System\\obj\\",
+      "outputPath": "D:\\ClaySys Tasks\\MovieTicketBookingSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
